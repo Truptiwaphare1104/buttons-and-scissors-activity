@@ -1,9 +1,10 @@
 [Activity]
 name = Buttons and Scissors
 activity_version = 4
+license = GPLv3+;GPLv2+
 bundle_id = org.sugarlabs.buttonsscissors
 icon = buttons
 exec = sugar-activity activity.Activity
-license = GPLv3+ and GPLv2+
-summary = A game about buttons and scissors
+summary = A game about buttons and scissors.
 repository = https://github.com/sugarlabs/buttons-and-scissors-activity.git
+tags = Game
