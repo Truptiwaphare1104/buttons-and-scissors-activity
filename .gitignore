@@ -3,3 +3,5 @@
 *.xo 
 *.pyo
 *.pkl
+dist
+locale
