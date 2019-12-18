@@ -44,9 +44,9 @@ class game:
         sound = True
         try:
             pygame.mixer.init()
-        except Exception, err:
+        except Exception as err:
             sound = False
-            print 'error with sound', err
+            print('error with sound', err)
 
         i = 0
         gameDisplay = pygame.display.get_surface()
@@ -118,7 +118,7 @@ class game:
                 totaltime = pickle.load(input)
                 moves = pickle.load(input)
 
-        print moves
+        print(moves)
 
         showline = linetrack(buttonslist[0], buttonslist)
 
@@ -190,7 +190,7 @@ class game:
                             totaltime = pickle.load(input)
                             moves = pickle.load(input)
 
-                    print moves
+                    print(moves)
                     backflag = 0
                     homeflag = 0
                     backreset = 0

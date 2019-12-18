@@ -58,7 +58,7 @@ class scores:
         black = (0, 0, 0)
 
         t = (100000 / (moves * totaltime))
-        print t
+        print(t)
         scores = int(t)
 
         if scores > maxscore:

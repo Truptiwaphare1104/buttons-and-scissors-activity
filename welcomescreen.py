@@ -62,7 +62,7 @@ class welcome:
 
         play_active = False
         help_active = False
-	about_active = False
+        about_active = False
         conti_active = False
         newgame_active = False
         back_active = False
@@ -81,31 +81,37 @@ class welcome:
             gameDisplay.blit(background, (0 - 50 + 280, 0 - 60))
 
             # create .pkl file if they don't exist
-            if os.path.exists("score.pkl")==False:
-		open('score.pkl','w+')
-            if os.path.exists("maxscore.pkl")==False:
-		open('maxscore.pkl','w+')
-            if os.path.exists("lasttime.pkl")==False:
-		open('lasttime.pkl','w+')
+            if os.path.exists("score.pkl") == False:
+                open('score.pkl', 'w+')
+            if os.path.exists("maxscore.pkl") == False:
+                open('maxscore.pkl', 'w+')
+            if os.path.exists("lasttime.pkl") == False:
+                open('lasttime.pkl', 'w+')
 
             if (event.type == pygame.MOUSEMOTION):
                 eve_x, eve_y = event.pos
-                play_active = play.get_rect(center=(185 + playx + 280, 360 + playy)).collidepoint(eve_x, eve_y)
-                about_active = abouts.get_rect(center=(95 + 280, 545)).collidepoint(eve_x, eve_y)
-                help_active = helps.get_rect(center=(275 + 280, 545)).collidepoint(eve_x, eve_y)
-                conti_active = conti.get_rect(center=(50 + contix + 60 + 280, -190 + contiy + 20)).collidepoint(eve_x, eve_y)
-                newgame_active = newgame.get_rect(center=(25 + newgamex + 90 + 280, -70 + newgamey + 10)).collidepoint(eve_x, eve_y)
-                back_active = back.get_rect(center=(280 + backx + 90 + 280, -70 + backy + 10)).collidepoint(eve_x, eve_y)
-
+                play_active = play.get_rect(
+                    center=(185 + playx + 280, 360 + playy)).collidepoint(eve_x, eve_y)
+                about_active = abouts.get_rect(
+                    center=(95 + 280, 545)).collidepoint(eve_x, eve_y)
+                help_active = helps.get_rect(
+                    center=(275 + 280, 545)).collidepoint(eve_x, eve_y)
+                conti_active = conti.get_rect(
+                    center=(50 + contix + 60 + 280, -190 + contiy + 20)).collidepoint(eve_x, eve_y)
+                newgame_active = newgame.get_rect(center=(
+                    25 + newgamex + 90 + 280, -70 + newgamey + 10)).collidepoint(eve_x, eve_y)
+                back_active = back.get_rect(
+                    center=(280 + backx + 90 + 280, -70 + backy + 10)).collidepoint(eve_x, eve_y)
 
             if play_active:                                                                      # PLAY
-                gameDisplay.blit(pygame.transform.scale(play, (180, 180)), (100 + playx + 280, 275 + playy))
+                gameDisplay.blit(pygame.transform.scale(
+                    play, (180, 180)), (100 + playx + 280, 275 + playy))
             else:
                 gameDisplay.blit(play, (100 + playx + 280, 275 + playy))
 
             if (event.type == pygame.MOUSEBUTTONDOWN or event.type == pygame.MOUSEBUTTONUP) and event.button == 1:
                 eve_x, eve_y = event.pos
-                if play.get_rect(center= (185 + playx + 280, 360 + playy)).collidepoint(eve_x, eve_y):
+                if play.get_rect(center=(185 + playx + 280, 360 + playy)).collidepoint(eve_x, eve_y):
                     if event.type == pygame.MOUSEBUTTONDOWN:
                         if sound:
                             s1.play()
@@ -115,7 +121,8 @@ class welcome:
                         play_active = False
 
             if about_active:                                                                    # ABOUT
-                gameDisplay.blit(pygame.transform.scale(abouts, (90, 90)), (50 + 280, 500))
+                gameDisplay.blit(pygame.transform.scale(
+                    abouts, (90, 90)), (50 + 280, 500))
             else:
                 gameDisplay.blit(abouts, (50 + 280, 500))
 
@@ -132,7 +139,8 @@ class welcome:
                         about_active = False
 
             if help_active:                                                                   # HELP
-                gameDisplay.blit(pygame.transform.scale(helps, (90, 90)), (230 + 280, 500))
+                gameDisplay.blit(pygame.transform.scale(
+                    helps, (90, 90)), (230 + 280, 500))
             else:
                 gameDisplay.blit(helps, (230 + 280, 500))
 
@@ -147,10 +155,10 @@ class welcome:
                         ru.make(gameDisplay, sound)
                         help_active = False
 
-
             if os.path.getsize("score.pkl") > 0:
                 if conti_active:                                                                   # CONTINUE
-                    gameDisplay.blit(pygame.transform.scale(conti, (260, 75)), (50 + contix + 280, -190 + contiy))
+                    gameDisplay.blit(pygame.transform.scale(
+                        conti, (260, 75)), (50 + contix + 280, -190 + contiy))
                 else:
                     gameDisplay.blit(conti, (50 + contix + 280, -190 + contiy))
 
@@ -165,9 +173,11 @@ class welcome:
                             return 0
 
             if newgame_active:                                                                        # NEWGAME
-                gameDisplay.blit(pygame.transform.scale(newgame, (260, 75)),  (25 + newgamex + 280, -70 + newgamey))
+                gameDisplay.blit(pygame.transform.scale(
+                    newgame, (260, 75)),  (25 + newgamex + 280, -70 + newgamey))
             else:
-                gameDisplay.blit(newgame,  (25 + newgamex + 280, -70 + newgamey))
+                gameDisplay.blit(
+                    newgame,  (25 + newgamex + 280, -70 + newgamey))
 
             if (event.type == pygame.MOUSEBUTTONDOWN or event.type == pygame.MOUSEBUTTONUP) and event.button == 1:
                 eve_x, eve_y = event.pos
@@ -181,7 +191,8 @@ class welcome:
                         return 1
 
             if back_active:                                                                        # BACK
-                gameDisplay.blit(pygame.transform.scale(back, (150, 75)), (290 + backx + 280, -70 + backy))
+                gameDisplay.blit(pygame.transform.scale(
+                    back, (150, 75)), (290 + backx + 280, -70 + backy))
             else:
                 gameDisplay.blit(back,  (290 + backx + 280, -70 + backy))
 
